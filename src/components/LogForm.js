@@ -73,13 +73,14 @@ const LogForm = ({logTitle}) => {
 
 
     return (
-        <div className="w-[90%] md:w-[60%] lg:w-[50%] xl:w-[30%] max-w-[650px] h-[90%] pr-3 pl-3 bg-[rgba(6,49,63,0.05)]  backdrop-blur-3xl border-2 border-[#06313f] rounded-3xl shadow-[0_4px_10px_#06313f] flex flex-col items-center justify-center overflow-hidden">
+        <div className="w-[90%] h-[90%] md:w-[60%] lg:w-[50%] xl:w-[30%] max-w-[650px] xl:h-auto xl:aspect-square pr-3 pl-3 bg-[rgba(6,49,63,0.05)]  backdrop-blur-3xl border-3 border-[#06313f] rounded-3xl shadow-[0_4px_10px_#06313f] flex flex-col items-center justify-center overflow-hidden
+         moving_border relative before:bg-gradient-to-r from-[#06313f] via-[#1e6986] to-[#06313f]">
             <div className="w-full min-h-[55px] lg:min-h-[70px] h-auto mb-10 relative">
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex items-center justify-center bg-[#06313f] rounded-b-[20px] min-w-[140px] w-[40%] h-full
             before:absolute before:-top-1 before:left-[-35px] before:w-[35px] before:h-[35px] before:rounded-tr-full before:bg-transparent before:shadow-[17px_0_0_0_#06313f]
             after:absolute after:-top-1 after:right-[-35px] after:w-[35px] after:h-[35px] after:rounded-tl-full after:bg-transparent after:shadow-[-17px_0_0_0_#06313f]
             ">
-                    <span className="text-2xl font-medium text-shadow">{logTitle}</span>
+                    <span className="text-2xl font-medium text-shadow blinking_text">{logTitle}</span>
                 </div>
             </div>
             <div className="w-full h-full mt-5 mb-8 flex flex-col items-center justify-center gap-3">

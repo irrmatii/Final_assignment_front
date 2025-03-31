@@ -24,7 +24,7 @@ const PostCard = ({post, shortText}) => {
         <div
             className="w-full h-full bg-[rgba(6,49,63,0.6)] shadow-[0_4px_10px_#cb7039] border border-[#06313f] rounded-lg p-5 flex flex-col items-center gap-2 hover:scale-105 transition-transform duration-500 ease-in-out">
             <div className={`w-full ${shortText && 'max-w-[335px]'} aspect-video flex items-center justify-center`}>
-                <img className="w-full aspect-video rounded-lg" src={post.postImage} alt=""/>
+                <img className="w-full aspect-video rounded-lg object-cover" src={post.postImage} alt=""/>
             </div>
             <div className="w-full flex justify-center text-center">
                 <Link to={`/Posts/${post._id}`} >
@@ -44,7 +44,7 @@ const PostCard = ({post, shortText}) => {
                     <Link to={`/Users/${post.username}`}>
                         <div className="flex gap-2 cursor-pointer">
                             <p className="hover:text-[#f38c55] transition-colors duration-500 ease-in-out">{post.username}</p>
-                            <img className="w-[30px] aspect-square rounded-full border" src={post.image} alt=""/>
+                            <img className="w-[30px] aspect-square rounded-full border object-cover" src={post.image} alt=""/>
                         </div>
                     </Link>
                 )}

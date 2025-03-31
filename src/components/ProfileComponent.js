@@ -18,6 +18,12 @@ const ProfileComponent = () => {
     const imageRef = useRef();
     const passwordRef = useRef();
 
+    useEffect(() => {
+        usernameRef.current.value = onlineUser.username;
+        emailRef.current.value = onlineUser.email;
+    }, []);
+
+
     async function updateImage() {
         if (!imageRef) return;
         const image = {image: imageRef.current.value}
@@ -94,7 +100,7 @@ const ProfileComponent = () => {
     return (
         <div className="w-full flex flex-col md:flex-row gap-7">
             <div className="w-full md:w-[40%] flex flex-col items-center gap-2">
-                <img className="rounded-full border  max-h-[100px] md:max-h-[200px]" src={onlineUser?.image} alt=""/>
+                <img className="rounded-full border aspect-square max-h-[100px] md:max-h-[200px] object-cover" src={onlineUser?.image} alt=""/>
                 <p onClick={() => setChangeImage(prev => !prev)}
                    className="text-sm cursor-pointer text-center hover:text-[#cb7039] transition-colors duration-300">Click
                     to change profile image</p>
@@ -139,7 +145,7 @@ const ProfileComponent = () => {
                             <p className="text-lg">Username</p>
                         </div>
                         <Input ref={usernameRef}
-                               alert={alert.alert === 'Username' ? alert.message : ""}
+                               error={alert.alert === 'Username' ? alert.message : ""}
                                correct={alert.alert === "CorrectUsername" ? alert.message : ""}
                                className="w-full"
                         />

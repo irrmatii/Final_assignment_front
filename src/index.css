@@ -21,5 +21,48 @@ body{
 }
 
 .test{
-  color: #f38c55;
+  color: #cb7039;
 }
+
+.moving_border{}
+
+.moving_border::before{
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 155%;
+  animation: borderAnimation 6s linear infinite;
+  z-index: -2;
+}
+
+.moving_border::after{
+  content: "";
+  position: absolute;
+  background-color: rgb(1, 19, 25);
+  inset: 0.5px;
+  border-radius: 1.5rem;
+  z-index: -1;
+}
+
+@keyframes borderAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.blinking_text{
+  animation: blinking_text 3s linear infinite;
+}
+
+@keyframes blinking_text {
+  0%, 100% {
+    color: #b1e1f1;
+  }
+  50% {
+    color: #fff8f0;
+  }
+}
+

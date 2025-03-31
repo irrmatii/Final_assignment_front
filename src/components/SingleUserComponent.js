@@ -28,7 +28,7 @@ const SingleUserComponent = ({user}) => {
     return (
         <div className="w-full flex flex-col md:flex-row gap-2">
             <div className="w-full md:w-[30%] flex justify-center">
-                <img className="rounded-full border max-h-[100px] md:max-h-[120px] lg:max-h-[200px] aspect-square" src={user.image} alt=""/>
+                <img className="rounded-full border max-h-[100px] md:max-h-[120px] lg:max-h-[200px] aspect-square object-cover" src={user.image} alt=""/>
             </div>
             <div className="w-full flex flex-col">
                 <div className="w-full text-center">

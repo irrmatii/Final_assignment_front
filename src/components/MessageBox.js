@@ -10,7 +10,7 @@ const MessageBox = ({message}) => {
         <div className="w-full h-auto flex gap-3"
              style={{justifyContent: message.from === onlineUser.username ? "end" : "start"}}>
             {message.from !== onlineUser.username &&
-                <img className="w-[30px] h-[30px] md:w-[38px] md:h-[38px] xl:w-[45px] xl:h-[45px] rounded-full border border-[#fff8f0]"
+                <img className="w-[30px] h-[30px] md:w-[38px] md:h-[38px] xl:w-[45px] xl:h-[45px] rounded-full border border-[#fff8f0] object-cover"
                      src={message.image} alt=""/>
             }
             <div
@@ -19,7 +19,7 @@ const MessageBox = ({message}) => {
                 {/*<p className="text-gray-500 text-xs">{date} at <span className="text-gray-500 text-xs">{time}</span></p>*/}
             </div>
             {message.from === onlineUser.username &&
-                <img className="w-[30px] h-[30px] md:w-[38px] md:h-[38px] xl:w-[45px] xl:h-[45px] rounded-full border border-[#fff8f0]"
+                <img className="w-[30px] h-[30px] md:w-[38px] md:h-[38px] xl:w-[45px] xl:h-[45px] rounded-full border border-[#fff8f0] object-cover"
                      src={message.image} alt=""/>
             }
         </div>

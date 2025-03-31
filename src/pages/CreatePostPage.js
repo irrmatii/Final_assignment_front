@@ -36,7 +36,8 @@ const CreatePostPage = () => {
     return (
         <div className="w-full h-screen p-10 flex justify-center items-center">
             <div
-                className="relative w-[90%] md:w-[60%] lg:w-[60%] xl:w-[60%] max-w-[750px] h-[90%] pr-3 pl-3 pb-3 md:pr-10 md:pl-10 md:pb-5 bg-[rgba(6,49,63,0.05)]  backdrop-blur-3xl border border-[#8d4d1d] shadow-[0_4px_20px_#cb7039] rounded-3xl flex flex-col items-center overflow-hidden">
+                className="relative w-[90%] md:w-[60%] lg:w-[60%] xl:w-[60%] max-w-[750px] h-[90%] pr-3 pl-3 pb-3 md:pr-10 md:pl-10 md:pb-5 bg-[rgba(6,49,63,0.05)]  backdrop-blur-3xl border border-[#8d4d1d] shadow-[0_4px_20px_#cb7039] rounded-3xl flex flex-col items-center justify-center overflow-hidden
+                 moving_border before:bg-gradient-to-r from-[#8d4d1d] via-[#e5925f] to-[#8d4d1d]">
                 <div className="w-full min-h-[55px] h-auto mb-10">
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex items-center justify-center bg-[#8d4d1d] shadow-[0_4px_10px_#cb7039] rounded-b-[20px] min-w-[180px] w-[40%] min-h-[55px] h-auto xl:h-[70px] pt-2 pb-2
             before:absolute before:-top-1 before:left-[-35px] before:w-[35px] before:h-[35px] before:rounded-tr-full before:bg-transparent before:shadow-[17px_0_0_0_#8d4d1d]

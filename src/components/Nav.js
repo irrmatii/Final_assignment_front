@@ -51,7 +51,7 @@ const Nav = () => {
                 className={`w-full h-full flex flex-col items-center transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
                 <div className='w-full mt-10 flex flex-col items-center gap-2'>
                     <img src={onlineUser?.image || 'https://cdn.pfps.gg/pfps/3352-christmas-cat.png'} alt=""
-                         className='rounded-full w-[80px] aspect-square border'
+                         className='rounded-full w-[80px] aspect-square border object-cover'
                     />
                     <h1 className='text-[#cb7039]'>Welcome {onlineUser?.username}</h1>
                 </div>
