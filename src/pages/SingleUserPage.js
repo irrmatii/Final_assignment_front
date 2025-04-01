@@ -5,10 +5,11 @@ import PostCard from "../components/PostCard";
 import useStore from "../store/main";
 import SingleUserComponent from "../components/SingleUserComponent";
 import ProfileComponent from "../components/ProfileComponent";
+import Button from "../components/Button";
 
 const SingleUserPage = () => {
 
-    const {onlineUser} = useStore(state => state);
+    const {onlineUser, setDeletedItem, deletedItem} = useStore(state => state);
 
     const params = useParams();
     const [user, setUser] = useState({})
@@ -31,7 +32,17 @@ const SingleUserPage = () => {
                 setUserPosts(data)
             })
 
-    }, [params.username]);
+    }, [params.username, deletedItem]);
+
+    async function deletePost () {
+        const id = {
+            id: deletedItem.id
+        }
+
+        const data = await http.postToken('http://localhost:8001/deletePost', id, localStorage.getItem("token"))
+        console.log(data)
+        setDeletedItem(null)
+    };
 
     return (
         <div className="w-full min-h-screen pb-10 pt-10 pr-4 pl-4 md:p-10 flex flex-col gap-5 md:gap-14">
@@ -53,6 +64,19 @@ const SingleUserPage = () => {
                         </div>
                     ))
                 )}
+                {(deletedItem && deletedItem.length > 0) &&
+                    <div className="w-full h-full absolute bg-[rgba(1,14,17,0.6)]">
+                        <div
+                            className="w-[90%] max-w-[335px] md:w-[30%] md:max-w-none p-5 aspect-video bg-[rgba(6,49,63,0.95)] fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] shadow-[0_4px_10px_#cb7039] border border-[#06313f] rounded-lg flex flex-col items-center justify-around gap-4">
+                            <p className="text-[clamp(16px,1.7vw,19px)] text-center">Do you really want to delete post
+                                ${deletedItem.title}?</p>
+                            <div className="w-full flex justify-around">
+                                <Button text={"Delete"} className="text-[clamp(15px,1.5vw,20px)] w-[30%] pr-2 pl-2" click={deletePost}/>
+                                <Button text={"Cancel"} className="text-[clamp(15px,1.5vw,20px)] w-[30%] pr-2 pl-2" click={() => setDeletedItem(null)}/>
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     );

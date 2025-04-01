@@ -9,6 +9,7 @@ const CreatePostPage = () => {
     const imageRef = useRef()
     const descriptionRef = useRef()
     const [alert, setAlert] = useState({})
+    const [symbols, setSymbols] = useState(0)
 
     async function createPost() {
         const postInfo = {
@@ -17,7 +18,6 @@ const CreatePostPage = () => {
             postImage: imageRef.current.value,
             time: new Date().toISOString().split('T').join(' ').split('.')[0],
     }
-
         const data = await http.postToken('http://localhost:8001/createPost', postInfo, localStorage.getItem("token"))
         console.log(data)
         setAlert({
@@ -31,6 +31,14 @@ const CreatePostPage = () => {
             imageRef.current.value = "";
         }
     }
+
+    function countSymbols() {
+        console.log(descriptionRef.current.value.length)
+        setSymbols(descriptionRef.current.value.length)
+    }
+
+
+
 
 
     return (
@@ -65,10 +73,15 @@ const CreatePostPage = () => {
                         />
                     </div>
 
-                    <div className="w-full h-[30%] flex flex-col items-center">
+                    <div className="w-full h-[35%] flex flex-col items-center">
                         <textarea className="w-[90%] lg:w-[70%] h-full p-2 text-[clamp(15px,1vw,20px)] resize-none overflow-y-auto hideScrollContainer bg-[rgba(255,255,255,0.10)] rounded-lg border border-[#fcf2e4]"
                                   placeholder="Write description"
+                                  onKeyDown={countSymbols}
+                                  maxLength={1000}
                             ref={descriptionRef}></textarea>
+                        <div className="pt-1">
+                            <p className="text-sm">{symbols} / 1000</p>
+                        </div>
                         <div className="w-[70%] min-h-[20px] text-center">
                             {(alert.alert === "Description" || alert.alert === "All") && <p className='text-sm text-red-400'>{alert.message}</p>}
                             {alert.alert === "CorrectDescription" && <p className='text-sm text-green-600'>{alert.message}</p>}

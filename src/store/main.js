@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { socket } from "../socket";
+import {useState} from "react";
 
 const useStore = create((set) => ({
     socket,
@@ -10,6 +11,7 @@ const useStore = create((set) => ({
     favoritesId: [],
     favoritePosts: [],
     Messages: "",
+    deletedItem: [],
 
     setOnlineUser: (info) => set({onlineUser: info }),
 
@@ -36,6 +38,10 @@ const useStore = create((set) => ({
     getAllMessages: (info) => set({
         Messages: info
     }),
+
+    setDeletedItem: (post) => set({
+        deletedItem: post
+    })
 
 }));
 

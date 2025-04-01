@@ -21,7 +21,7 @@ body{
 }
 
 .test{
-  color: #cb7039;
+  color: rgba(1, 14, 17, 0.43);
 }
 
 .moving_border{}

@@ -94,12 +94,12 @@ const LogForm = ({logTitle}) => {
                                error={error?.error === "username" || error?.error === "all" ? error.message : null}/>
                     </div>
                     <div className='w-full h-[50px] flex flex-col items-center'>
-                        <Input ref={passwordRef} placeholder={"Password"} className={'w-[90%] md:w-[70%]'}
+                        <Input ref={passwordRef} placeholder={"Password"} className={'w-[90%] md:w-[70%]'} type={'password'}
                                error={error?.error === "password" ? error.message : null}/>
                     </div>
                     {logTitle === "Register" && (
                         <div className='w-full h-[50px] flex flex-col items-center'>
-                            <Input ref={password2Ref} placeholder={"Repeat Password"} className={'w-[90%] md:w-[70%]'}
+                            <Input ref={password2Ref} placeholder={"Repeat Password"} className={'w-[90%] md:w-[70%]'} type={'password'}
                                    error={error?.error === "password" ? error.message : null}/>
                         </div>
                     )}
